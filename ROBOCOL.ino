@@ -46,6 +46,34 @@ void loop() {
       paraFrenteE();
     }else if(centroD < 500 && centroE < 500 && esquerdo < 500 && direito < 500){
       paraFrente();
+    }else if(esquerdo > 500){
+      curvaE();
+    }else if(direito > 500){
+      curvaD();
+    }
+}
+void curvaE(){
+  while(centroE < 500){
+    direito = analogRead(sensorD);
+    esquerdo = analogRead(sensorE);
+    centroE = analogRead(sensorCentroE);
+    centroD = analogRead(sensorCentroD);
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, HIGH);
+    digitalWrite(in3, LOW);
+    digitalWrite(in4, LOW);
+    }
+}
+void curvaD(){
+  while(centroD < 500){
+    direito = analogRead(sensorD);
+    esquerdo = analogRead(sensorE);
+    centroE = analogRead(sensorCentroE);
+    centroD = analogRead(sensorCentroD);
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, LOW);
+    digitalWrite(in3, LOW);
+    digitalWrite(in4, HIGH);
     }
 }
 void paraFrenteE(){  
